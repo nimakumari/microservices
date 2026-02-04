@@ -29,7 +29,7 @@ jobs:
           az acr login --name azureuserkey
       - name: Image Build
         run: |
-          docker build -t gettasktodoimage:v4 GetTaskTodoMicroservice
+          docker build -t gettasktodoimage:v4 GetTasksTodoMicroservice
       - name: Tag image
         run: |
           docker tag gettasktodoimage:v4 azureuserkey.azurecr.io/gettasktodoimage:v4

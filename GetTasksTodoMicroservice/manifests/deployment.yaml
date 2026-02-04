@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: get-tasks
-        env:
-          - name: CONNECTION_STRING
-            value: "Driver={ODBC Driver 17 for SQL Server};Server=tcp:devopsinsiderssrv.database.windows.net,1433;Database=todoapp;Uid=devopsadmin;Pwd=P@ssw01rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"                                          
+        # env:
+        #   - name: CONNECTION_STRING
+        #     value: "Driver={ODBC Driver 17 for SQL Server};Server=tcp:devopsinsiderssrv.database.windows.net,1433;Database=todoapp;Uid=devopsadmin;Pwd=P@ssw01rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"                                          
         image: azureuserkey.azurecr.io/gettasktodoimage:v4
         ports:
         - containerPort: 8000

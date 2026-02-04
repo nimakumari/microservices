@@ -3,16 +3,17 @@ kind: Ingress
 metadata:
   name: get-tasks-ingress
   annotations:
-    kubernetes.io/ingress.class: azure/application-gateway
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: get-tasks.devopsinsiders.online
+  - host: get-tasks.6weathers.com
     http:
       paths:
       - pathType: Prefix
-        path: "/"
+        path: /
         backend:
           service:
             name: get-tasks
-            port: 
+            port:
               number: 80
+

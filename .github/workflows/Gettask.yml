@@ -29,10 +29,10 @@ jobs:
           az acr login --name azureuserkey
       - name: Image Build
         run: |
-          docker build -t gettasktodoimage:v4 GetTasksTodoMicroservice
+          docker build -t gettasktodoimage:v8 GetTasksTodoMicroservice
       - name: Tag image
         run: |
-          docker tag gettasktodoimage:v4 azureuserkey.azurecr.io/gettasktodoimage:v4
+          docker tag gettasktodoimage:v8 azureuserkey.azurecr.io/gettasktodoimage:v8
       - name: Push image to ACR
         run: |
-          docker push azureuserkey.azurecr.io/gettasktodoimage:v4
+          docker push azureuserkey.azurecr.io/gettasktodoimage:v8

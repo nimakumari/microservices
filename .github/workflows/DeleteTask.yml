@@ -1,0 +1,38 @@
+name: microservices/DeleteTask
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  id-token: write
+  contents: read    
+
+jobs:
+  buildandpush:
+    name: Build and Push image to acr
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          client-id: eb0e9cdc-7bf6-4f2b-900e-a4a477aa2077
+          tenant-id: 6901971e-1fb5-4ec1-8f59-35098ebda1fa
+          subscription-id: e983ccd0-e849-426c-bdbd-6b1579e3aae2
+
+      - name: ACR Login
+        run: |
+          az acr login --name azureuserkey
+      - name: Image Build
+        run: |
+          docker build -t deltasktodoimage:v5 DeleteTaskTodoMicroservice
+      - name: Tag image
+        run: |
+          docker tag deltasktodoimage:v5 azureuserkey.azurecr.io/deltasktodoimage:v5
+      - name: Push image to ACR
+        run: |
+          docker push azureuserkey.azurecr.io/deltasktodoimage:v5

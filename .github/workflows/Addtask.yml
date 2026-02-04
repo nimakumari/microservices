@@ -1,4 +1,4 @@
-name: microservices/addtask
+name: microservices/AddTask
 
 on:
   push:
@@ -29,10 +29,10 @@ jobs:
           az acr login --name azureuserkey
       - name: Image Build
         run: |
-          docker build -t AddTaskTodoimage:v2 AddTaskTodoMicroservice
+          docker build -t addtasktodoimage:v2 AdTaskTodoMicroservice
       - name: Tag image
         run: |
-          docker tag AddTaskTodoimage:v2 azureuserkey.azurecr.io/AddTaskTodoimage:v2
+          docker tag addtasktodoimage:v2 azureuserkey.azurecr.io/addtasktodoimage:v2
       - name: Push image to ACR
         run: |
-          docker push azureuserkey.azurecr.io/AddTaskTodoimage:v2
+          docker push azureuserkey.azurecr.io/addtasktodoimage:v2

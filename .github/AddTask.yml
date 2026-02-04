@@ -30,12 +30,12 @@ jobs:
 
       - name: Image Build
         run: |
-          docker build -t microtodoimage:v1 MicroTodoUI
+          docker build -t microtodoimage:v8 MicroTodoUI
 
       - name: Tag image
         run: |
-          docker tag microtodoimage:v1 azureuserkey.azurecr.io/microtodoimage:v1
+          docker tag microtodoimage:v8 azureuserkey.azurecr.io/microtodoimage:v8
 
       - name: Push image to ACR
         run: |
-          docker push azureuserkey.azurecr.io/microtodoimage:v1
+          docker push azureuserkey.azurecr.io/microtodoimage:v8

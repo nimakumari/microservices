@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-add-tasks-api-ingress
+  name: todo-add-tasks-api
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: add-task
+      app: todo-add-tasks-api
   template:
     metadata:
       labels:
-        app: add-task
+        app: todo-add-tasks-api
     spec:
       containers:
-      - name: add-task
-        env:
-          - name: CONNECTION_STRING
-            value: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:devopsinsider.database.windows.net,1433;Database=azureuserdatabase;Uid=azureuser;Pwd=Devops@insider;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
-        image: azureuserkey.azurecr.io/addtasktodoimage:v3
+      - name: todo-add-tasks-api
+        image: azureuserkey.azurecr.io/addtasktodoimage:v8
         ports:
         - containerPort: 8000
+        env: 
+        - name: CONNECTION_STRING
+          value: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:devopsinsider.database.windows.net,1433;Database=azureuserdatabase;Uid=azureuser;Pwd=Devops@insider;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"

@@ -1,8 +1,7 @@
 name: microservices/DeleteTask
 
 on:
-  push:
-    branches: [ main ]
+ workflow_dispatch:
 
 permissions:
   id-token: write
@@ -29,10 +28,10 @@ jobs:
           az acr login --name azureuserkey
       - name: Image Build
         run: |
-          docker build -t deltasktodoimage:v5 DeleteTaskTodoMicroservice
+          docker build -t deltasktodoimage:v1 DeleteTaskTodoMicroservice
       - name: Tag image
         run: |
-          docker tag deltasktodoimage:v5 azureuserkey.azurecr.io/deltasktodoimage:v5
+          docker tag deltasktodoimage:v1 azureuserkey.azurecr.io/deltasktodoimage:v1
       - name: Push image to ACR
         run: |
-          docker push azureuserkey.azurecr.io/deltasktodoimage:v5
+          docker push azureuserkey.azurecr.io/deltasktodoimage:v1

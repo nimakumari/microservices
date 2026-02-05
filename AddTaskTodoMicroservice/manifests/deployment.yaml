@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: todo-add-tasks-api
-        image: azureuserkey.azurecr.io/addtasktodoimage:v10
+        image: azureuserkey.azurecr.io/gettasktodoimage:v8
         ports:
         - containerPort: 8000
         env: 
